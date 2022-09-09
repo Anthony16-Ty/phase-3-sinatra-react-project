@@ -48,3 +48,13 @@ class ApplicationController < Sinatra::Base
   end
 
 end
+
+post '/users' do
+  send_it = User.create(
+    name: params[:name],
+    street_address: params[:street_address],
+    specialisation: params[:specialisation],
+    salary: params[:salary]
+  )
+  send_it.to_json
+end
